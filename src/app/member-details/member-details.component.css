@@ -1,0 +1,15 @@
+button
+{
+	width:100%;
+	margin: 5px;
+}
+
+.custom-row
+{
+	width:130%;
+}
+
+.custom-row legend
+{
+	text-align: center;
+}

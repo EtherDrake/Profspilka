@@ -1,0 +1,65 @@
+<div class="members">
+
+  <!--<div class="spinner-container" align="center" *ngIf="dataSource.loading$ | async">
+    <mat-spinner></mat-spinner>
+  </div>-->
+
+  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Пошук">
+  </mat-form-field>
+
+  <mat-table class="members-table" [dataSource]="dataSource" matSort>    
+
+    <ng-container matColumnDef="memberID">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="departamentID">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> Відділ </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.departamentID}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="secondname">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> Прізвище </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.secondname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> Ім'я</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.firstname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> По-батькові </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.lastname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sex">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> Стать </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.sex ? 'Ч': 'Ж'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> Статус </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="birthdate">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> Дата народження </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.birthdate | date:dateFormat}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header> Дата прийому </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.date | date:dateFormat}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['memberID', 'secondname', 'firstname', 'lastname', 'sex', 'status', 'birthdate', 'date']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['memberID', 'secondname', 'firstname', 'lastname', 'sex', 'status', 'birthdate', 'date']" (click)="onRowClicked(row)"></mat-row>
+
+  </mat-table>
+
+  <mat-paginator [length]="5" [pageSize]="10" [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+
+</div>

@@ -1,0 +1,74 @@
+<div class="row custom-row">
+  <div class= "col-sm-5 custom-container jumbotron">       
+    <form class="form-horizontal">
+        <fieldset>
+        <legend>{{member.id}}: {{member.secondname | uppercase}} {{member.firstname | uppercase}} {{member.lastname | uppercase}}</legend>
+
+            <div class="form-group">
+              <label>Прізвище:
+                <input [(ngModel)]="member.secondname" name="secondname" placeholder="Прізвище">
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label>Ім'я:
+                <input [(ngModel)]="member.firstname" name="firstname" placeholder="Ім'я">
+              </label>
+            </div>
+     
+            <div class="form-group">
+              <label>По-батькові:
+                <input [(ngModel)]="member.lastname" name="lastname" placeholder="По-батькові">
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label>Статус:
+                <input [(ngModel)]="member.status" name="status" placeholder="Статус">
+              </label>
+            </div>             
+            
+           <!--- Buttons Block --->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="save()">Зберегти</button>
+                <button type="reset" class="btn btn-default" (click)="cancel()">Відмінити</button>                
+            </div>
+        </fieldset>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--
+<div>
+<h2>{{member.id}}: {{member.secondname | uppercase}} {{member.firstname | uppercase}} {{member.lastname | uppercase}}</h2>
+<div>
+  <label>Прізвище:
+    <input [(ngModel)]="member.secondname" placeholder="Прізвище"/>
+  </label>
+  <label>Ім'я:
+    <input [(ngModel)]="member.firstname" placeholder="Ім'я"/>
+  </label>
+  <label>По-батькові:
+    <input [(ngModel)]="member.lastname" placeholder="По-батькові"/>
+  </label>
+  <label>Статус:
+    <input [(ngModel)]="member.status" placeholder="Статус"/>
+  </label>
+  <label>Дата народження:
+    <input type="date" [(ngModel)]="member.birthdate | date:'yyyy-MM-dd'" (ngModelChange)="member.birthdate = $event"/>
+  </label>
+  <label>Дата прийому:
+    <input type="date" [(ngModel)]="member.date" placeholder="Дата прийому"/>
+  </label>
+   <button (click)="save()">save</button>
+</div>
+</div>
+-->
